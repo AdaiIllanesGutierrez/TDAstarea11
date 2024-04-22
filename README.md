@@ -141,3 +141,26 @@ en caso de encontrara algun error o excepcion se mostrara lo siguiente
     -Mensaje: "Prioridad no válida."
     -Error: Si no hay pacientes con la prioridad deseada.
     -Mensaje: "No hay pacientes con esa prioridad."
+
+## IMPLEMENTACION EN LIST.H Y LIST.C 
+adicionalmente yo implemente las siguientes funciones para la lista y asi poder usarlas de manera abstracta en el codigo general 
+````
+1. list_search(List *list, void *target, int (*compare)(void *data, void *target)):
+````
+Esta función busca un elemento específico en la lista.
+Recorre la lista buscando el elemento que coincida con el que estás buscando.
+Si lo encuentra, devuelve ese elemento.
+Si no lo encuentra, devuelve NULL.
+
+````
+2. list_size(List *L)
+````
+Esta función te dice cuántos elementos hay en la lista.
+Devuelve el número total de elementos.
+````
+3. list_remove(List *L, void *target, int (*compare)(void *data, void *target)):**
+````
+Esta función elimina un elemento específico de la lista.
+Busca el elemento que quieres eliminar.
+Si lo encuentra, lo elimina de la lista.
+Ajusta la lista para mantener todo en orden.
