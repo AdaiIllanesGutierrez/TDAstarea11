@@ -219,3 +219,37 @@ int list_size(List *L) {
     }
     return count;
 }
+
+void list_remove(List *L, void *target, int (*compare)(void *data, void *target)) {
+    if (L == NULL || L->head == NULL) {
+        return; // Lista vacía o no inicializada
+    }
+
+    Node *current = L->head;
+    Node *prev = NULL;
+
+    // Buscar el nodo a ser eliminado
+    while (current != NULL && compare(current->data, target) != 0) {
+        prev = current;
+        current = current->next;
+    }
+
+    // Si no se encontró el nodo, salir
+    if (current == NULL) {
+        return;
+    }
+
+    // Si el nodo a ser eliminado es el primero
+    if (prev == NULL) {
+        L->head = current->next;
+    } else {
+        prev->next = current->next;
+    }
+
+    // Si el nodo a ser eliminado es el último
+    if (current == L->tail) {
+        L->tail = prev;
+    }
+    free(current);
+}
+

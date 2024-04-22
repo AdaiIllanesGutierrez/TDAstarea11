@@ -38,9 +38,12 @@ void list_sortedInsert(List *L, void *data,
                        int (*lower_than)(void *data1, void *data2));
 
 // Prototipo de la función de búsqueda general
-void *list_search(List *list, void *target, int (*compare)(void *data, void *target));
+void *list_search(List *list, void *target,
+                  int (*compare)(void *data, void *target));
 
 int list_size(List *L);
 
+void list_remove(List *L, void *target,
+                 int (*compare)(void *data, void *target));
 
 #endif
